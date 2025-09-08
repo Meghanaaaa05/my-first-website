@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poco Mega Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+ 
+    body { margin: 0; font-family: Arial, sans-serif; }
+
+    /* Top Bar */
+    .top-bar {
+      background: #000; color: #fff; font-size: 14px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 5px 40px;
+    }
+    .top-bar a { color: orange; text-decoration: none; }
+    .top-bar-right { display: flex; align-items: center; gap: 20px; }
+
+    /* Navbar */
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 40px; }
+    .navbar-left { display: flex; align-items: center; gap: 10px; }
+    .search-box { display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; padding: 4px 6px; }
+    .search-box input { border: none; outline: none; padding: 6px; width: 180px; }
+    .search-box i { color: #555; }
+    .logo { font-size: 28px; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+    .logo i { color: orange; }
+    .navbar-right { display: flex; align-items: center; gap: 15px; font-size: 18px; }
+    .navbar-right a { color: black; text-decoration: none; }
+
+    /* Menu */
+    .menu { display: flex; justify-content: center; gap: 25px; padding: 10px 0; font-weight: bold; }
+    .menu a { color: black; text-decoration: none; position: relative; }
+    .menu a:hover { color: orange; }
+
+    /* Dropdown */
+    .dropdown { position: relative; }
+    .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #ddd; min-width: 150px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 1000; }
+    .dropdown-content a { display: block; padding: 8px 12px; font-weight: normal; }
+    .dropdown-content a:hover { background: #f5f5f5; }
+    .dropdown:hover .dropdown-content { display: block; }
+    .offer { background: red; color: white; font-size: 10px; padding: 2px 5px; border-radius: 4px; margin-left: 3px; }
+   
+/* Mobile view*/
+@media (max-width: 576px) {
+  .top-bar {
+    flex-direction: column;
+    padding: 8px 20px;
+    font-size: 12px;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+  .navbar-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .search-box input {
+    width: 100px;
+  }
+  .navbar-right {
+    font-size: 16px;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .menu {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    height: auto;
+  }
+  .hero-content {
+    max-width: 100%;
+  }
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .offers {
+    grid-template-columns: 1fr;
+  }
+  .offers .women, .offers .men {
+    width: 100% !important;
+    height: 200px;
+    background-position: center;
+    text-align: center;
+  }
+
+  .category-items {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .category-items div {
+    flex: 1 1 40%;
+  }
+
+  .blog-items {
+    flex-direction: column;
+    align-items: center;
+  }
+  .blog-card {
+    width: 90%;
+  }
+
+  footer .bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  footer .bottom > div {
+    border-right: none !important;
+  }
+}
+
+/* Tablet view  */
+@media (min-width: 577px) and (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .search-box input {
+    width: 150px;
+  }
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  .hero {
+    padding: 30px;
+    text-align: center;
+  }
+  .hero-content {
+    max-width: 80%;
+  }
+  .offers {
+    grid-template-columns: 1fr 1fr;
+  }
+  .offers .women, .offers .men {
+    width: 100% !important;
+    height: 220px;
+  }
+  .category-items {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .blog-items {
+    flex-wrap: wrap;
+  }
+  .blog-card {
+    width: 45%;
+  }
+  footer .bottom {
+    flex-wrap: wrap;
+  }
+}
+/* Hero Section */
+    .hero {
+background-image:url("https://media.istockphoto.com/id/1249219777/photo/shopping-online-concept-parcel-or-paper-cartons-with-a-shopping-cart-logo-in-a-trolley-on-a.jpg?s=612x612&w=0&k=20&c=EWKEahyVLY8iAHyirCCDESHRGW37lqUJ7In0SssNSLE=");
+  background-size:cover;
+  height:40vh;
+  width:88vw;
+   border:none;
+  border: 12px;
+        height: 400px; display: flex; align-items: center; justify-content: space-between; padding:50px 80px; color: #000; }
+        .img1{
+            height: 300px;
+            width:300px;
+        }
+    .hero-content { max-width: 50%; }
+    .hero h2 { font-size: 36px; margin: 10px 0; }
+    .hero p { font-size:18px;
+    color:#444;
+      margin-bottom: 20px; }
+    .btn { background: orange; color: #000; padding: 10px 20px; border: none; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; }
+/*offers*/
+    .shopnow{ display: flex; justify-content: center; align-items: center; padding: 30px 40px; }
+     .offers{ padding: 5px; display: grid; grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); gap: 10px; } 
+     .offers .women{ background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHzK6uPN5FqGWaAiwQRAOOyoNy7Ptg_1DIfg&s"); background-size: cover; width: 600px; height: 250px; border: 1px solid #eee; padding: 20px; border-radius: 8px; text-align: right; object-fit: contain;  margin:0 auto;}
+     .offers .men{ background-image: url("https://media.istockphoto.com/id/620972806/photo/man-texting-in-the-shopping-mall.jpg?s=612x612&w=0&k=20&c=c9ByRTLwKrXzlPSBag2QzjU0pDS7P_SR07AjxqMlcU8="); background-size:cover; width:650px; height: 250px; border: 1px solid #eee; padding: 20px; border-radius: 8px; text-align: left; object-fit: contain;  } .offers .button{ padding: 10px; margin: 5px 10px; background-color: orange; color: black; border-color: white; border-radius: 6px; } .offers .button:hover{ cursor: pointer; background-color: aliceblue; }
+    /* Categories */
+    .categories { text-align: center; padding: 40px 20px; }
+    .categories h2 { margin-bottom: 40px;
+    font-weight:bold }
+    .category-items {  margin-top:40px; display: flex; justify-content: center; gap:80px; }
+    .category-items div { text-align: center; 
+    }
+    .category-items i { font-size: 40px; display: block; margin-bottom: 10px; }
+    
+    
+
+    /* Blog Section */
+    .blog { background: #f2f2f2; padding: 40px 20px; }
+    .blog h2 { text-align: center; margin-bottom: 30px; }
+    .blog-items { display: flex; justify-content: space-around; gap: 20px; }
+    .blog-card { background: #fff; padding: 15px; border-radius: 6px; width: 30%; }
+    .blog-card img { max-width: 100%; border-radius: 6px; }
+    .blog-meta { font-size: 12px; color: gray; margin: 10px 0; }
+    .last{
+      align-items: center;
+       display:flex;
+       justify-content: center;
+    }
+
+    /* Footer */
+      
+footer { padding: 20px 20px; } footer .bottom { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; } footer .bottom .col-1 { flex: 1; } footer .bottom .col-2 { flex: 2; text-align: center; } footer .bottom .col-3 { flex: 1; } .bottom { display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; gap: 50px; } .bottom .col-1, .bottom .col-2, .bottom .col-3 { flex: 1 1 30%; min-width: 250px; } .bottom .col-1{ padding: 30px; } .bottom h4 { font-size: 18px; margin-bottom: 10px; color: #f1c40f; } .bottom a { color: #040404; text-decoration: none; display: inline-block; margin: 5px 0; } .bottom a:hover { color: #f1c40f; } .bottom .col-2 { text-align: center; } .bottom .col-2 .logo { width: 100px; margin-bottom: 15px; } @media (max-width: 768px) { .bottom { flex-direction: column; text-align: center; } .bottom .col-1, .bottom .col-2, .bottom .col-3 { flex: 1 1 100%; } } .bottom .col-3 .links { display: flex; justify-content: space-between; gap: 5px; } .bottom .col-3 ul { list-style: none; padding: 20px; margin: 0; } .bottom .col-3 ul li { margin: 8px 0; } .bottom .col-3 ul li a { text-decoration: none; transition: color 0.3s ease; } .bottom .col-3 ul li a:hover { color: #f1c40f; } @media (max-width: 768px) { .bottom .col-3 .links { flex-direction: column; align-items: center; } } footer .bottom > div { position: relative; padding: 0 20px; } footer .bottom > div:nth-child(1), footer .bottom > div:nth-child(2) { border-right: 1px solid #969595; } footer .bottom > div:last-child { border-right: none; }
+    
+    }
+  </style>
+</head>
+<body>
+     </style>
+     <body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">Any Questions? <a href="mailto:contact@demo.com">contact@demo.com</a></div>
+    <div class="top-bar-right">
+      <span>Our app</span>
+      <span>24 x 7 service</span>
+      <div class="dropdown">
+        <a href="#">$ US Dollar <i class="fa fa-angle-down"></i></a>
+        <div class="dropdown-content">
+          <a href="#">$ US Dollar</a>
+          <a href="#">€ Euro</a>
+          <a href="#">£ Pound</a>
+          <a href="#">₹ Rupee</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#">English <i class="fa fa-angle-down"></i></a>
+        <div class="dropdown-content">
+          <a href="#">English</a>
+          <a href="#">Spanish</a>
+          <a href="#">French</a>
+          <a href="#">German</a>
+        </div>
+      </div>
+      <span>My account</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <i class="fa fa-bars"></i>
+      <div class="search-box">
+        <input type="text" placeholder="Search Products">
+        <i class="fa fa-search"></i>
+      </div>
+    </div>
+    <div class="logo"><i class="fa fa-shopping-cart"></i> poco <span style="font-size:14px;font-weight:normal;">mega store</span></div>
+    <div class="navbar-right">
+      <a href="#"><i class="fa fa-exchange-alt"></i></a>
+      <a href="#"><i class="fa fa-heart"></i></a>
+      <a href="#"><i class="fa fa-shopping-cart"></i> Cart (0)</a>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <div class="menu">
+    <a href="#">HOME</a>
+    <a href="#">SPECIAL <span class="offer">OFFER</span></a>
+    <a href="#">PRODUCTS</a>
+    <div class="dropdown">
+      <a href="#">MEGA MENU <i class="fa fa-angle-down"></i></a>
+      <div class="dropdown-content">
+        <a href="#">Essentials 1</a>
+        <a href="#">Essentials 2</a>
+        <a href="#">Essentials 3</a>
+      </div>
+    </div>
+    <a href="#">BLOG</a>
+    <a href="#">ADDONS</a>
+    <a href="#">CONTACT US</a>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <p style="color:red;font-weight:bold;">FASHION WEEK</p>
+      <h2>Women Fashion Style Collection</h2>
+      <p>Women Jackets From Popular Brands</p>
+      <a href="#" class="btn">SHOP NOW</a>
+    </div>
+  </div>
+  <!-- Offers Section -->
+  <div class="shopnow"> <h1> Get 20% off on your next Purchase</h1> 
+    <p style="font-size: 20px; color: grey">World wide offer Availabe</p> 
+    <button style="padding: 18px; background-color: orange; color: black; border-color: white; border-radius: 10px;font-weight: bold; cursor: pointer; "> SHOP NOW</button> </div> 
+    <div class="offers"> <div class="women"> <p class="text"> Buy 1 Get 1 Free</p> <h2 class="text"> All Brands Under one Click</h2><br> <button class="button"> SHOP NOW</button> </div> <div class="men"> <p class="text"> Upto 30% off</p> <h2 class="text"> Mens Fashion</h2><br> 
+    <button class="button"> SHOP NOW</button> </div> </div>
+
+  <!-- Categories -->
+  <div class="categories">
+    <h2>SHOP BY CATEGORY</h2>
+    <hr/>
+    <div class="category-items">
+      
+      <div><img src="C:\Users\Admin\Downloads\img1-80x81.webp" style="margin-bottom:18px ;" /> 
+        <p>Components </p></div>
+      <div><img src="C:\Users\Admin\Downloads\img5-100x101.webp "  />
+        <p> Footwear</p>
+        </div>
+      <div><img src="C:\Users\Admin\Downloads\img3-100x100.webp"/>
+        <p >desktop </p>
+        </div>
+      <div><img src="C:\Users\Admin\Downloads\img6-100x100.webp" />
+       <p>software</p></div>
+      <div><img src="C:\Users\Admin\Downloads\pad4-100x100.webp"/>
+      <p>Phones & PDAs</p></div>
+      <div><img src="C:\Users\Admin\Downloads\pad2-80x81.webp" style="margin-bottom:20px ;"/>
+      <p>cameras</p></div>
+    </div>
+  </div>
+
+  <!-- Blog Section -->
+  <div class="blog">
+    <h2>FROM THE BLOG</h2>
+    <div class="blog-items">
+      <div class="blog-card">
+        <img src="C:\Users\Admin\Downloads\new3-870x500.webp" alt="Blog 1">
+        <div class="blog-meta">25 Feb 2019 | Jolio Balia | 0 comments | 1105 views</div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+      </div>
+      <div class="blog-card">
+        <img src="C:\Users\Admin\Downloads\new7-870x500.webp" alt="Blog 2">
+        <div class="blog-meta">25 Feb 2019 | Jolio Balia | 0 comments | 1084 views</div>
+        <p>Eget nunc lobortis mattis aliquam faucibus purus in massa tempor</p>
+      </div>
+      <div class="blog-card">
+        <img src="C:\Users\Admin\Downloads\4-870x500.webp" alt="Blog 3">
+        <div class="blog-meta">25 Feb 2019 | Mark Jecno | 0 comments | 1106 views</div>
+        <p>Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<footer> <div class="bottom"> <div class="col-1"> <div class="email"> <h4>Email Us</h4>
+   <a href=""><i class="fas fa-envelope me-2 text-primary"></i> demo@demo.com</a> </div><br><br>
+    <div class="contact"> <h4> Phone Number</h4> <a href=""><i class="fas fa-phone-alt me-2 text-primary"></i> 789-345-1230</a>
+     </div> </div> <div class="col-2"> <img src="https://demo.pocotheme.com/3/image/catalog/maza/svg/logo3.svg" alt="logo" class="logo"> <br><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+ </div> <div class="col-3">
+   <div class="links">
+     <ul> <li><a href="">My Orders</a></li> 
+      <li><a href="">Returns</a></li> 
+      <li><a href="">Support</a></li>
+       <li><a href="">Tracking</a></li> 
+       <li><a href="">Wishlist</a></li>
+      </ul> 
+      <ul> 
+        <li><a href="">About Us</a></li>
+         <li><a href="">Blog</a></li>
+         
+         <li><a href="">Brands</a></li>
+          <li><a href="">Testimonals</a></li> 
+          <li><a href="">Special</a></li> </ul> </div> </div> </footer>
+          <p class="last "></i>2022 <i class="fa-solid fa-copyright color:opacity"></i>  PocoTheme power by MazaEngine</p>
